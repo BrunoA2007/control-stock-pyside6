@@ -5,6 +5,8 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt
 from ui.sidebar import Sidebar
 from ui.productos_view import ProductosView
+from ui.caja_view import CajaView
+from ui.reportes_view import ReportesView
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -32,8 +34,8 @@ class MainWindow(QMainWindow):
         # Páginas placeholder (por ahora solo labels)
         self.stack.addWidget(self._pagina("Inicio"))        # índice 0
         self.stack.addWidget(ProductosView())               # índice 1
-        self.stack.addWidget(self._pagina("Caja"))          # índice 2
-        self.stack.addWidget(self._pagina("Reportes"))      # índice 3
+        self.stack.addWidget(CajaView())                    # índice 2
+        self.stack.addWidget(ReportesView())     # índice 3
         self.stack.addWidget(self._pagina("Configuracion")) # índice 4
         
         # Conectar señales de los botones a los slots

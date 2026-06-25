@@ -20,7 +20,7 @@ class ProductosView(QWidget):
         layout_principal.setContentsMargins(16, 16, 16, 16)
         layout_principal.setSpacing(16)
 
-        # ── Lado izquierdo: tabla ──────────────────────────
+        # Lado izquierdo: tabla 
         lado_izq = QVBoxLayout()
 
         titulo = QLabel("Productos")
