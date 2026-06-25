@@ -24,7 +24,7 @@ class ProductosView(QWidget):
         lado_izq = QVBoxLayout()
 
         titulo = QLabel("Productos")
-        titulo.setStyleSheet("font-size: 18px; font-weight: bold; color: white;")
+        titulo.setStyleSheet("font-size: 18px; font-weight: bold; color: black;")
         lado_izq.addWidget(titulo)
 
         # Campo de búsqueda
@@ -59,7 +59,7 @@ class ProductosView(QWidget):
         lado_der.setAlignment(Qt.AlignTop)
 
         titulo_form = QLabel("Detalle")
-        titulo_form.setStyleSheet("font-size: 18px; font-weight: bold; color: white;")
+        titulo_form.setStyleSheet("font-size: 18px; font-weight: bold; color: black;")
         lado_der.addWidget(titulo_form)
 
         formulario = QFormLayout()
