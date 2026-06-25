@@ -35,3 +35,4 @@ def inicializar_db():
     conn.commit()
     conn.close()
     print("Base de datos inicializada correctamente.")
+    print("Hola Mundo")
