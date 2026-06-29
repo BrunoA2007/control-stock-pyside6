@@ -33,8 +33,25 @@ class  ReportesView(QWidget):
         self.busqueda.setPlaceholderText("Buscar Venta...")
         self.busqueda.textChanged.connect(self._filtrar_ventas)
         
+        self.lista_venta = QTableWidget()
+        self.lista_venta.setColumnCount(3)
+        self.lista_venta.setHorizontalHeaderLabels(
+            ["ID" , "Total" , "Fecha"]
+        )
+        self.lista_venta.horizontalHeader().setStretchLastSection(True)
+        self.lista_venta.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.lista_venta.setSelectionBehavior(QTableWidget.SelectRows)
+        self.lista_venta.setSelectionMode(QTableWidget.SingleSelection)
+        self.lista_venta.setColumnHidden(0,True)
+        col_cen.addWidget(self.lista_venta)
+        
+        layout.addLayout(col_cen , stretch= 2)
         
     # ────────── LOGICA ──────────
+    
+    def _mostrar_evento(self,event):
+        super().showEvent(event)
+        self._cargar_ventas()
 
     def _cargar_ventas(self):
         ventas = self.dao_venta.obtener_todas()
@@ -45,3 +62,21 @@ class  ReportesView(QWidget):
             ventas = self.dao_venta.obtener_todas()
         else:
             ventas = self.dao_venta.obtener_todas()
+            
+    
+    # ──────── Diseño ────────
+    
+    def _aplicar_estilos(self):
+        self.setAttribute(Qt.WA_StyledBackground, True)
+        self.setStyleSheet("""
+            QWidget#ReportesView {
+                background-color #ffffff;
+            }
+            QLabel {
+                background-color: transparent;
+                font-size: 13px;
+                color: #ffffff;
+            }"""
+            
+        )
+    
